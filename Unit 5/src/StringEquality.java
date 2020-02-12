@@ -6,31 +6,43 @@
 //Class -
 //Lab  -
 
-import static java.lang.System.*;
-
 public class StringEquality
 {
-	private String wordOne, wordTwo;
+   private String wordOne, wordTwo;
 
-	public StringEquality()
-	{
-	}
+   public StringEquality()
+   {
+   }
 
-	public StringEquality(String one, String two)
-	{
-	}
+   public StringEquality(String one, String two)
+   {
+      setWords (wordOne, wordTwo);
+   }
 
-	public void setWords(String one, String two)
-	{
-	}
+   public void setWords(String one, String two)
+   {
+      wordOne = one;
+      wordTwo = two;
+   }
 
-	public boolean checkEquality( )
-	{
-		return false;
-	}
+   public boolean checkEquality()
+   {
+      if (wordOne == wordTwo) {
+      return true;
+      }
+      else {
+      return false;
+      }
+     }
 
-	public String toString()
-	{
-		return wordOne + " does not have the same letters as " + wordTwo + "\n";
-	}
+  public String toString()
+  {
+    String output = "";
+    if (checkEquality()) {
+    output += wordOne + " does not have the same letters as " + wordTwo;
+    }else {
+    output += wordOne + " does have the same letters as " + wordTwo;
+    }
+	return output;
+    }
 }
