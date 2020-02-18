@@ -11,8 +11,6 @@ public class LetterRemover
 
 public LetterRemover()
 {
-    //I am not sure what this means
-
 }
 
 public void setRemover(String s, String rem)
