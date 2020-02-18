@@ -2,13 +2,12 @@
 //www.apluscompsci.com
 //Name -
 
-import static java.lang.System.*;
-
-public class LetterRemoverRunner
+public class LetterRemoverRunner {
+public static void main(String args[])
 {
-	public static void main( String args[] )
-	{
-		LetterRemover test = new LetterRemover
-	   (test.setRemover("I really want dumplings","l"));
-											
+    LetterRemover test = new LetterRemover ();
+    test.setRemover("I really want dumplings","l");
+    System.out.println(test.toString());
+    System.out.println("Removed :"+test.removeLetters());
+ }
 }

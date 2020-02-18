@@ -1,27 +1,30 @@
-//(c) A+ Computer Science
-//www.apluscompsci.com
-//Name
+import java.util.Scanner;
 
-import static java.lang.System.*;
 
-public class TriangleOne
-{
-	private String word;
+public class TriangleOne {
+    private String word;
 
-	public TriangleOne()
-	{
-		word="";
-	}
 
-	public TriangleOne(String s)
-	{
-	}
+    public TriangleOne()
+    {
+        word="";
+    }
 
-	public void setWord(String s)
-	{
-	}
+    public TriangleOne(String s)
+    {
+    word = s;
+    }
 
-	public void print( )
-	{
-	}
-}
+    public void setWord(String s)
+    {
+    word = s;
+    }
+
+    public void print( )
+    {
+        int length = word.length();
+        for(int i = length; i >= 0 ; i --) {
+            System.out.println(word.substring(0, i));
+        }
+    }
+   }

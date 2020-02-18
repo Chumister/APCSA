@@ -6,31 +6,31 @@ import static java.lang.System.*;
 
 public class LetterRemover
 {
-   private String sentence;
-   private char lookFor;
+ private String sentence;
+ private String lookFor;
 
-	public LetterRemover()
-	{
-		//call set
-	}
+public LetterRemover()
+{
+    //I am not sure what this means
 
-	//add in second constructor
-	
-	
-	public void setRemover(String s, char rem)
-	{
-		sentence = s;
-		lookFor = rem;
-	}
+}
 
-	public String removeLetters()
-	{
-		String cleaned=sentence;
-		return cleaned;
-	}
+public void setRemover(String s, String rem)
+{
+    this.sentence = s;
+    this.lookFor = rem;
+}
 
-	public String toString()
-	{
-		return sentence + " - letter to remove " + lookFor;
-	}
+public String removeLetters()
+{
+    sentence = sentence.replaceAll(lookFor,"");
+    String cleaned=sentence;
+    return cleaned;
+}
+
+public String toString()
+{
+    return sentence + " - letter to remove " + lookFor;     
+
+}
 }
