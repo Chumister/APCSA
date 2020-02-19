@@ -7,24 +7,57 @@ import static java.lang.System.*;
 
 public class RockPaperScissors
 {
-	private String playChoice;
-	private String compChoice;
-
+	public String playChoice;
+	private int compChoice;
+	public String compString;
 	public RockPaperScissors()
 	{
+		playChoice = "";
+		compChoice = (int) (2*Math.random());
+		if (compChoice == 0) {
+			compString = "R";
+		}else if (compChoice == 1) {
+			compString = "P";
+		}else {
+			compString = "S";
+		}
 	}
 
 	public RockPaperScissors(String player)
 	{
+		playChoice = player;
+		compChoice = (int) (2*Math.random());
+		if (compChoice == 0) {
+			compString = "R";
+		}else if (compChoice == 1) {
+			compString = "P";
+		}else {
+			compString = "S";
+		}
 	}
 
 	public void setPlayers(String player)
 	{
+		playChoice = player;
+		compChoice = (int) (2*Math.random());
+		if (compChoice == 0) {
+			compString = "R";
+		}else if (compChoice == 1) {
+			compString = "P";
+		}else {
+			compString = "S";
+		}
 	}
 
 	public String determineWinner()
 	{
+		String computer = compString;
+		String Play = "";
 		String winner="";
+		Play = playChoice;
+		out.println("Your choice was in " + Play);
+		out.println("Your computer picked " + computer);
+
 		return winner;
 	}
 
