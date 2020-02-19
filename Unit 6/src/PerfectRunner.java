@@ -10,6 +10,6 @@ public class PerfectRunner
 	{ 
 		
 		Perfect ipn = new Perfect();
-        System.out.println("Is perfect number: "+ipn.isPerfectNumber(28));
+        System.out.println("Is perfect number: "+ipn.isPerfectNumber(31));
 	} 
 	} 
