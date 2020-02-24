@@ -8,20 +8,20 @@ import java.util.Scanner;
 
 public class TriplesRunner
 {
-   public static void main(String args[])
-   {
-	   Scanner keyboard = new Scanner(System.in);
-       String choice="";
-           do{
-               out.print("Enter the max number to use : ");
-               int big = keyboard.nextInt();
+ public static void main(String args[])
+ {
+       Scanner keyboard = new Scanner(System.in);
+        String choice="";
+            do{
+                out.print("Enter the max number to use : ");
+                int big = keyboard.nextInt();
 
 
-            Triples triple = new Triples(big);
-               out.println( triple );
+             Triples trip = new Triples( big);
+                System.out.println( trip );
 
-               System.out.print("Do you want to enter more data? ");
-               choice=keyboard.next();
-           }while(choice.equals("Y")||choice.equals("y"));
-   }
-	}
+                System.out.print("Do you want to enter more data? ");
+                choice=keyboard.next();
+            }while(choice.equals("Y")||choice.equals("y"));
+    }
+}

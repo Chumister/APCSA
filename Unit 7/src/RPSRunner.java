@@ -16,8 +16,15 @@ public class RPSRunner
 		
 			String player = "";
 		
-			out.print("type in your prompt [R,P,S] :: ");
-			
+				 do{
+			            System.out.print("Rock­Paper­Scissors ­ pick your weapon[R,P,S]:: ");
+			           	player = keyboard.next();
+			            RockPaperScissors test = new RockPaperScissors(player);
+			            System.out.println(test); //uses toString method
+			            System.out.println(test.determineWinner()+"\n");
+			            System.out.print("Do you want to play again? ");
+			            response = keyboard.next().charAt(0);
+			        }while(response=='Y'||response=='y');
 			//read in the player value
 		
 			RockPaperScissors game = new RockPaperScissors();		
