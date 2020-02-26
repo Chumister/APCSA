@@ -11,19 +11,19 @@ public class TriangleFive
 
 	public TriangleFive()
 	{
-		setLetter('a');
+		setLetter('b');
 		setAmount(0);
 	}
 
-	public TriangleFive(char c, int amt)
+	public TriangleFive(char b, int amt)
 	{
-		setLetter(c);
+		setLetter(b);
 		setAmount(amt);
 	}
 
-	public void setLetter(char c)
+	public void setLetter(char b)
 	{
-		letter = c;
+		letter = b;
 
 	}
 
@@ -40,7 +40,7 @@ public class TriangleFive
 		for (int times = 0; times < amount; times++) {
 			for (int i = 0; i < amount; i++) {
 				for (int a = amount; a > i; a--) {
-					to += (char) (letter + i);
+					to += (char) (letter+i);
 				}
 				to += " ";
 			}
