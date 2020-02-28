@@ -14,11 +14,12 @@ public class RaySumLast
 			{
 				total += ray[s];	
 			}
-			else
+			else {
 				total += 0;
-			
+			}
 		}
-		if (total <= 0)
+		if (total <= 0) {
 			total = -1;
+		}
 		return total;	}
 }
