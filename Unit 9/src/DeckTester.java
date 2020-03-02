@@ -18,7 +18,7 @@ public class DeckTester {
 		    System.out.println();
 		    System.out.println("How large is the deck?");
 		    System.out.println(cards.size());
-		    cards.shuffle(values);
+		    cards.shuffle();
 		    cards.deal();
 		    System.out.println();
 		    System.out.println(cards.toString());
