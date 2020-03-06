@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Random;
 import java.util.ArrayList;
 import java.lang.Math;
 
@@ -9,8 +10,9 @@ import java.lang.Math;
  */
 
 public class Deck {
-  private List<Card> cards;    //cards contains all the cards in the deck.
-  private int size;            //The number of not-yet-dealt cards. Cards are dealt from the top (highest index) down.
+  private List<Card> cards;   
+  private int size;  
+  Random rand = new Random();
   
   /**
    * Creates a new <code>Deck</code> instance.<BR>
@@ -21,11 +23,14 @@ public class Deck {
    * @param values is an array containing all of the card point values.
    */
   public Deck(String[] ranks, String[] suits, int[] values) {
-    for(int i = 0; i < ranks.length; i++){
-      Card card = new Card(ranks[i], suits[i], values[i]);    //Creates new card by matching the params.
-      cards.add(card);
+	  cards = new ArrayList<Card>();
+	  for (int j = 0; j < ranks.length; j++) {
+	   for (String suitString : suits) {
+	    cards.add(new Card(ranks[j], suitString, values[j]));
+	   }
     }
-    size = cards.size();    //Sets the size field to the size of the deck.
+    size = cards.size();   
+    shuffle();
   }
   
   //Determines if this deck is empty (no undealt cards).
@@ -44,6 +49,17 @@ public class Deck {
    */
   public void shuffle() {
     /* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+	  
+//	  int[] temp = new int[values.length];
+//	  int mid = (values.length + 1) / 2;
+
+	  int index1 = rand.nextInt(52);
+	  int index2 = rand.nextInt(52);
+	  for (int k=0; k < 52; k++) {
+	  Card tempCard = cards.get(index2);
+	  cards.set(index2, cards.get(index1));
+	  cards.set(index1, tempCard);
+  }
   }
   
   /**
