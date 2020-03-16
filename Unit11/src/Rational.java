@@ -19,9 +19,9 @@ class Rational implements Comparable<Rational>
 	
 	public void add(Rational  other)
 	{
-		//num1/den1 + num2/den2 
-		//new numerator = (num1 * den2 + num2 * den1)
-		//new denominator = (den1 * den2)
+		num1/den1 + num2/den2 
+		new numerator = (num1 * den2 + num2 * den1)
+		new denominator = (den1 * den2)
 		
 		
 
