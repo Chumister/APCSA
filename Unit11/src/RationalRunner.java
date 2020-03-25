@@ -64,6 +64,6 @@ public class RationalRunner
 		out.println("\n\n1/6.equals(2/8) = "+rOne.equals(rTwo));				
 		rOne.add(rTwo);
 		out.println("\n\n1/6.add(2/8) = "+ rOne);		
-		*/	
+		
 	}
 }

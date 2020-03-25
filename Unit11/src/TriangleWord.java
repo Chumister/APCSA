@@ -8,15 +8,16 @@ import static java.lang.System.*;
 public class TriangleWord
 {
 	//instance variables and constructors could be present, but are not necessary
-		
-	public static void printTriangle(String word) {
-		int a = 1;
-		for (int i = 0; i < word.length(); i++) {
-			for (int j = 0; j < a; j++) {
-				ApcsProject.p(word.substring(0, a));
-			}
-			ApcsProject.pL();
-			a++;
-		}
-	}
+	private static String word;//default constructor sets word
+	
+	public TriangleWord(){
+		word=""; }
+	//initialization onstructor sets wordpublic
+	TriangleWord(String w){
+		word=w;}
+	//mofifier method sets word
+	public void setWord(String w)
+	{this.word=w;}
+	//accessor method returns the tirangular w
+
 }

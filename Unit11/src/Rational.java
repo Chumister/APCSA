@@ -4,7 +4,7 @@
 
 import static java.lang.System.*; 
 
-class Rational implements Comparable<Rational>
+class Rational<numOne> implements Comparable<Rational>
 {
 	//add two instance variables
 	private int denominator;
@@ -33,9 +33,9 @@ class Rational implements Comparable<Rational>
 	
 	public void add(Rational  other)
 	{
-		num1/den1 + num2/den2 
-		new numerator = (num1 * den2 + num2 * den1)
-		new denominator = (den1 * den2)
+		//num1/den1 + num2/den2;
+		//new numerator = (num1 * den2 + num2 * den1);
+		//new denominator = (den1 * den2);
 		setNumerator(getNumerator() * other.getDenominator() + other.getNumerator() * getDenominator());
 		setDenominator(getDenominator() * other.getDenominator());
 
@@ -55,12 +55,8 @@ class Rational implements Comparable<Rational>
 	}
 
 	public Object clone ()
-	{	int r = Math.min(numOne, numTwo);
-		for (int i = r; i <= 1; i--) {
-			if (numOne % 1 == 0 && numTwo % 1 == 0)
-				return i;
-		}
-		return "";
+	{	Rational r = new Rational(getNumerator(), getDenominator());
+	     return r;
 	}
 
 
@@ -86,7 +82,7 @@ class Rational implements Comparable<Rational>
 		return false;
 	}
 
-	public int compareTo(Rational other)
+	public int compareTo(Rational rhs)
 	{
 		double top = (double) getNumerator() / rhs.getDenominator();
 		double bottom = (double) rhs.getNumerator() / rhs.getDenominator();
