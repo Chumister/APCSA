@@ -39,7 +39,7 @@ public class Skeleton implements Monster
 		}
 		public boolean namesTheSame(Monster other)
 		{
-			if (name.equals(other.getName()))// don't use ==
+			if (name.equals(other.getName()))
 				return true;
 			return false;}
 		public String toString () 
