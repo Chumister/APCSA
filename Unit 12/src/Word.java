@@ -5,69 +5,35 @@ import java.util.Comparator;
 //www.apluscompsci.com
 //Name -
 
-public class Word implements Comparable<Word>
-{
-private String word;
-private String[] array;
+public class Word {
+	private String word;
+	private static final String VOWELS = "AEIOUaeiou"; // only one
 
-public Word()
-{
-    word = "";
-}
+	public Word() {
+		setWord("Shotgun");
+	}
 
-public Word(String s)
-{
-    word = s;
-}
+	public Word(String word) {
+		setWord(word);
+	}
 
-public void setWord(String s)
-{
-    word = s;
-}
-public int compareTo(String rhs)
-{
-    String temp = (String)rhs;
-    if(word.length() > temp.length())
-        return 1;
-    else if(word.length() < temp.length())
-        return -1;
+	public void setWord(String word) {
+		this.word = word;
+	}
 
-    return 0;
-}
+	public int getNumVowels() {
+		int count = 0;
+		for (int i = 0; i < word.length(); i++)
+			if (VOWELS.contains(String.valueOf(word.charAt(i))))
+				count++;
+		return count;
+	}
 
-public void setSize(int size)
-{
-    array = new String[size];
-}
+	public int getLength() {
+		return word.length();
+	}
 
-public void add(int spot, String other)
-{
-    array[spot] = other;
-}
-
-public String[] sortByLength()
-{
-    Arrays.sort(array);
-    return array;
-}
-public String toString()
-{
-    return Arrays.toString(array);
-}
-
-public static class LengthComparator implements Comparator<Word> {
-    @Override
-    public int compare(Word word1, Word word2) {
-        return Integer.valueOf(word1.word.length()).compareTo(word2.word.length());
-    }
-}
-@Override
-public int compareTo(Word o) {
-	String temp = o.word;
-	return 0;
-}
-
-
-
-
+	public String toString() {
+		return word;
+	}
 }
