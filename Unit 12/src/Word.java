@@ -1,39 +1,62 @@
+import static java.lang.System.*;
 import java.util.Arrays;
-import java.util.Comparator;
 
-//(c) A+ Computer Science
-//www.apluscompsci.com
-//Name -
+public class Word implements Comparable
+{
+private String word;
+private  String[] array;
 
-public class Word {
-	private String word;
-	private static final String VOWELS = "AEIOUaeiou"; // only one
+public Word()
+{
+    word = "";
+}
 
-	public Word() {
-		setWord("Shotgun");
-	}
+public Word(String s)
+{
+    word = s;
+}
 
-	public Word(String word) {
-		setWord(word);
-	}
+public void setWord(String s)
+{
+    word = s;
+}
 
-	public void setWord(String word) {
-		this.word = word;
-	}
+public int compareTo(String rhs)
+{
+    String temp = (String)rhs;
+    if(word.length() > temp.length())
+        return 1;
+    else if(word.length() < temp.length())
+        return -1;
 
-	public int getNumVowels() {
-		int count = 0;
-		for (int i = 0; i < word.length(); i++)
-			if (VOWELS.contains(String.valueOf(word.charAt(i))))
-				count++;
-		return count;
-	}
+    return 0;
+}
 
-	public int getLength() {
-		return word.length();
-	}
+public void setSize(int size)
+{
+    array = new String[size];
+}
 
-	public String toString() {
-		return word;
-	}
+public void add(int spot, String other)
+{
+    array[spot] = other;
+}
+
+public String[] sortByLength()
+{
+    Arrays.sort(array);
+    return array;
+}
+public String toString()
+{
+    return Arrays.toString(array);
+}
+
+@Override
+public int compareTo(Object o) {
+	// TODO Auto-generated method stub
+	return 0;
+}
+
+
 }

@@ -28,7 +28,7 @@ public class WordSortTwo
 	{
 		  String output="";
           for (int index = 0; index < wordRay.length;index++){
-          System.out.println("Word " + index + " :: " + wordRay [index]);
+          System.out.println(wordRay [index]);
           }
           return output+"\n\n";
 	}
