@@ -30,8 +30,8 @@ public class WordRunner
 	    }
 	    test.sortByLength();
 	    System.out.println(test);
-		}	
-	}
+	}	
+}
 
 
 
