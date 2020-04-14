@@ -6,10 +6,7 @@
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Scanner;
-import java.util.Arrays;
-import static java.lang.System.*;
 
 public class WordRunner
 {
@@ -28,7 +25,7 @@ public class WordRunner
 	        test.setWord(word);
 	        test.add(i, word);
 	    }
-	    test.sortByLength();
+	    test.sortByLength(args);
 	    System.out.println(test);
 	}	
 }

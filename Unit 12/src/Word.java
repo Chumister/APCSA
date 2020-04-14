@@ -1,5 +1,6 @@
 import static java.lang.System.*;
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class Word implements Comparable
 {
@@ -42,8 +43,9 @@ public void add(int spot, String other)
     array[spot] = other;
 }
 
-public String[] sortByLength()
+public Object sortByLength(String[] stringArray)
 {
+    Arrays.sort(stringArray, Comparator.comparing(String::length));
     Arrays.sort(array);
     return array;
 }
@@ -57,6 +59,8 @@ public int compareTo(Object o) {
 	// TODO Auto-generated method stub
 	return 0;
 }
-
+public int compare(Word word1, Word word2) {
+    return Integer.valueOf(word1.word.length()).compareTo(word2.word.length());
+}
 
 }
