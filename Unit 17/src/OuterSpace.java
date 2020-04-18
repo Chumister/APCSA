@@ -75,14 +75,13 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	   paint(window);
    }
 
-	public void paint( Graphics window )
-	{
+   public void paint(Graphics window) {
 		if (alien == true) {
 			horde.generateHorde(115, 35, 40, 40, alienSpeed);
 			alien = false;
 		}
 		Graphics2D twoDGraph = (Graphics2D) window;
-		if (back == null)
+	   	if (back == null)
 			back = (BufferedImage) (createImage(getWidth(), getHeight()));
 		Graphics graphToBack = back.createGraphics();
 		graphToBack.setColor(Color.BLUE);
@@ -182,32 +181,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 			fired = false;
 		}
 		back = null;
-	}
 
-
-	public void keyPressed(KeyEvent e)
-	{
-		if (e.getKeyCode() == KeyEvent.VK_LEFT)
-		{
-			keys[0] = true;
-		}
-		if (e.getKeyCode() == KeyEvent.VK_RIGHT)
-		{
-			keys[1] = true;
-		}
-		if (e.getKeyCode() == KeyEvent.VK_UP)
-		{
-			keys[2] = true;
-		}
-		if (e.getKeyCode() == KeyEvent.VK_DOWN)
-		{
-			keys[3] = true;
-		}
-		if (e.getKeyCode() == KeyEvent.VK_SPACE)
-		{
-			keys[4] = true;
-		}
-		repaint();
 	}
 
 	public void keyReleased(KeyEvent e)
@@ -253,5 +227,11 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
       {
       }
   	}
+
+@Override
+public void keyPressed(KeyEvent arg0) {
+	// TODO Auto-generated method stub
+	
+}
 }
 

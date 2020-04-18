@@ -40,8 +40,20 @@ public class AlienHorde
 			a.draw(window);
 		}
 	}
+		
 	}
-
+	public void generateHorde(int x, int y, int w, int h, int s) {
+		int xPos = x;
+		for (int i = 0; i < size; i++) {
+			aliens.add(new Alien(x, y, w, h, s));
+			if (x >= 600) {
+				x = xPos;
+				y = y + 10 + h;
+			} else {
+				x = x + w + 10;
+			}
+		}
+	}
 	public void moveEmAll()
 	{
 		if (getSize() > 0) {
@@ -124,4 +136,5 @@ public class AlienHorde
 	{
 		return "";
 	}
+
 }
