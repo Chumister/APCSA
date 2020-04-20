@@ -11,28 +11,26 @@ import javax.imageio.ImageIO;
 public class Ammo extends MovingThing
 {
 	private int speed;
-	private boolean alive = true;
 
 	public Ammo()
 	{
-		this(0,0,0);
+		this(0,0,3);
 	}
 
 	public Ammo(int x, int y)
 	{
-		this(x, y, 5);
-
+		this(x,y,3);
 	}
 
 	public Ammo(int x, int y, int s)
 	{
-		super(x, y);
-		speed = s;
+		super(x,y);
+		speed=s;
 	}
 
 	public void setSpeed(int s)
 	{
-		speed = s;
+	   speed=s;
 	}
 
 	public int getSpeed()
@@ -42,49 +40,26 @@ public class Ammo extends MovingThing
 
 	public void draw( Graphics window )
 	{
-		window.setColor(Color.yellow);
-		window.fillRect(getX(), getY(), 10, 10);	}
+		window.setColor(Color.YELLOW);
+		window.fillRect(getX(),getY(),getWidth(),getHeight());
+	}
 	
 	
 	public void move( String direction )
 	{
-		if (direction.equals("RIGHT")) {
-			setX(getX() + speed);
-		}
-		if (direction.equals("LEFT")) {
-			setX(getX() - speed);
-		}
-		if (direction.equals("UP")) {
-			setY(getY() - speed);
-		}
-		if (direction.equals("DOWN")) {
-			setY(getY() + speed);
+		if(direction.equals("up")){
+			setY(getY()-speed);
+		}else if(direction.equals("down")){
+			setY(getY()+speed);
+		}else if(direction.equals("left")){
+			setX(getX()-speed);
+		}else if(direction.equals("right")){
+			setX(getX()+speed);
 		}
 	}
 
 	public String toString()
 	{
-		return super.toString() + " " + getSpeed();
-	}
-	public boolean didCollide(Alien al) {
-		if (getX() + 10 >= al.getX() && getX() <= al.getX() + al.getWidth()
-				&& getY() - 10 >= al.getY()
-				&& getY() <= al.getY() + al.getHeight()) {
-			kill();
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public boolean isAlive() {
-		if (getY() < 0) {
-			kill();
-		}
-		return alive;
-	}
-
-	public void kill() {
-		alive = false;
+		return super.toString() + speed;
 	}
 }

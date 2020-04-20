@@ -1,7 +1,6 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
 //Name -
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -12,129 +11,84 @@ import java.util.List;
 
 public class AlienHorde
 {
+	private boolean oright = false;
 	private List<Alien> aliens;
-	private boolean right = true;
-	private boolean left = false;
-	private boolean down = true;
-	private int score = 0;
-	private int save = 0;
-	private int size = 0;
-	private int bookendPosLeft = 0;
-	private int bookendPosRight = 0;
+
 	public AlienHorde(int size)
 	{
-		aliens = new ArrayList<Alien>(size);
-		this.size = size;
+		int xcount = 20;
+		int ycount = 25;
+		aliens = new ArrayList<Alien>();
+		for(int i = 0; i<size; i++){
+			aliens.add(new Alien(xcount,ycount));
+			xcount+=60;
+			if(xcount>=725){
+				xcount=20;
+				ycount+=45;
+			}
+		}
 	}
 
 	public void add(Alien al)
 	{
-		aliens.add(al);
-
+		aliens.add(new Alien());
 	}
 
 	public void drawEmAll( Graphics window )
 	{
-		if (getSize() > 0) {
-		for (Alien a : aliens) {
-			a.draw(window);
+		for(int i = 0; i<aliens.size(); i++){
+			aliens.get(i).draw(window);
 		}
 	}
-		
-	}
-	public void generateHorde(int x, int y, int w, int h, int s) {
-		int xPos = x;
-		for (int i = 0; i < size; i++) {
-			aliens.add(new Alien(x, y, w, h, s));
-			if (x >= 600) {
-				x = xPos;
-				y = y + 10 + h;
-			} else {
-				x = x + w + 10;
-			}
-		}
-	}
+
 	public void moveEmAll()
 	{
-		if (getSize() > 0) {
-			if (aliens.get(0).getX() <= 0) {
-				right = true;
-				left = false;
-				down = true;
-			} else if (aliens.get(getSize() - 1).getX()
-					+ aliens.get(getSize() - 1).getWidth() >= 800 - 18) {
-				right = false;
-				left = true;
-				down = true;
-			}
-			if (right == true) {
-				for (Alien a : aliens) {
-					a.move("RIGHT");
+		for(int i = 0; i<aliens.size();i++){
+			if(aliens.get(i).getX()<=15){
+				oright=true;
+				for(int b = 0; b<15;b++){
+					for(int h = 0; h<aliens.size();h++){
+						aliens.get(h).move("down");
+					}
 				}
-			} else {
-				for (Alien a : aliens) {
-					a.move("LEFT");
+				
+			}
+			if(aliens.get(i).getX()>=725){
+				oright=false;
+				for(int z = 0; z<15;z++){
+					for(int j = 0; j<aliens.size();j++){
+						aliens.get(j).move("down");
+					}
 				}
 			}
-			if (down == true) {
-				for (Alien a : aliens) {
-					a.move("DOWN");
-					a.move("DOWN");
-					a.move("DOWN");
-					a.move("DOWN");
-				}
-				down = false;
+			if(oright){
+				aliens.get(i).move("right");
+			}else{
+				aliens.get(i).move("left");
 			}
 		}
+		
 	}
-
-	public void removeDeadOnes(Bullets shots)
+	
+	public ArrayList<Ammo> removeDeadOnes(List<Ammo> shots)
 	{
-		if (getSize() > 0) {
-		for (int i = 0; i < getSize(); i++) {
-			if (shots.getSize() > 0) {
-				for (int j = 0; j < shots.getSize(); j++) {
-					if (shots.getAmmo(j).didCollide(aliens.get(i))) {
-						score += 10;
-						aliens.remove(i);
-						i = 0;
-						break;
+		ArrayList<Ammo> hit = new ArrayList<Ammo>();
+		for(int i = 0; i<shots.size();i++){
+			for(int j = 0; j<aliens.size();j++){
+				if((shots.get(i).getX()>=aliens.get(j).getX() && shots.get(i).getX()<=aliens.get(j).getX()+aliens.get(j).getWidth()) || (shots.get(i).getX()+10>=aliens.get(j).getX() && shots.get(i).getX()+10<=aliens.get(j).getX()+aliens.get(j).getWidth())){
+					if(shots.get(i).getY()>=aliens.get(j).getY() && shots.get(i).getY()<=aliens.get(j).getY()+aliens.get(j).getHeight()){
+						aliens.remove(j);
+						j--;
+						hit.add(shots.get(i));
 					}
 				}
 			}
 		}
-		}
-	}
-		public boolean endGame(Ship s) {
-			if (getSize() > 0) {
-				for (int i = 0; i < getSize(); i++) {
-					if (s.didCollide(aliens.get(i))) {
-						return true;
-					}
-					else if((aliens.get(getSize() - 1).getY()>=600))
-					{
-						return true;
-					}
-				}
-			}
-			return false;
-		}
-	public List<Alien> getList() {
-		return aliens;
-	}
-	public int getSize() {
-		return aliens.size();
-	}
-	public int getScore() {
-		return score;
+		return hit;
 	}
 
-	public void setScore(int s) {
-		score = s;
-	}
 	public String toString()
 	{
 		return "";
 	}
-
 }

@@ -16,17 +16,17 @@ public class Ship extends MovingThing
 
 	public Ship()
 	{
-		this(10,10,10,10,10);
+		this(400,450,35,35,2);
 	}
 
 	public Ship(int x, int y)
 	{
-		this(200,200,100,100,5);
+	   this(x,y,35,35,2);
 	}
 
 	public Ship(int x, int y, int s)
 	{
-		this(x,y,100,100,5);
+	   this(x,y,35,35,s);
 	}
 
 	public Ship(int x, int y, int w, int h, int s)
@@ -40,53 +40,39 @@ public class Ship extends MovingThing
 		}
 		catch(Exception e)
 		{
-			System.out.println("file error");
+			System.out.println("Ship Error :: "+e.toString());
 		}
 	}
 
 
 	public void setSpeed(int s)
 	{
-		speed=s;
+	   speed=s;
 	}
 
 	public int getSpeed()
 	{
-		return speed;
+	   return speed;
 	}
 
 	public void move(String direction)
 	{
-		if(direction.equals("RIGHT"))
-		{
-			setX(getX() + speed);
+		if(direction.equals("up")){
+			setY(getY()-speed);
+		}else if(direction.equals("down")){
+			setY(getY()+speed);
+		}else if(direction.equals("left")){
+			setX(getX()-speed);
+		}else if(direction.equals("right")){
+			setX(getX()+speed);
 		}
-		if(direction.equals("LEFT"))
-		{
-			setX(getX() - speed);
-		}
-		if(direction.equals("UP"))
-		{
-			setY(getY() - speed);
-		}
-		if(direction.equals("DOWN"))
-		{
-			setY(getY() + speed);
-		}	}
+	}
 
 	public void draw( Graphics window )
 	{
-   	window.drawImage(image,getX(),getY(),getWidth(),getHeight(),null);
+   		window.drawImage(image,getX(),getY(),getWidth(),getHeight(),null);
 	}
-	public boolean didCollide(Alien al) {
-		if (getX() + getWidth()-30 >= al.getX() && getX() <= al.getX() + al.getWidth()-30
-				&& getY() + getHeight()-30 >= al.getY()
-				&& getY() <= al.getY() + al.getHeight()-30) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+
 	public String toString()
 	{
 		return super.toString() + getSpeed();

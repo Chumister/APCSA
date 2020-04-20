@@ -16,7 +16,7 @@ public class Bullets
 
 	public Bullets()
 	{
-		ammo = new ArrayList<Ammo>(0);
+		ammo = new ArrayList<Ammo>();
 	}
 
 	public void add(Ammo al)
@@ -27,52 +27,33 @@ public class Bullets
 	//post - draw each Ammo
 	public void drawEmAll( Graphics window )
 	{
-		if (ammo.size() > 0) {
-			for (Ammo a : ammo) {
-				a.draw(window);
-			}
+		for(int i = 0; i<ammo.size(); i++){
+			ammo.get(i).draw(window);
 		}
 	}
 
 	public void moveEmAll()
 	{
-		if (ammo.size() > 0) {
-			for (Ammo a : ammo) {
-				a.move("UP");
-			}
+		for(int i = 0; i<ammo.size(); i++){
+			ammo.get(i).move("up");
 		}
 	}
 
 	public void cleanEmUp()
 	{
-		if (ammo.size() > 0) {
-			for (int i = 0; i < ammo.size(); i++) {
-				if (!ammo.get(i).isAlive()) {
-					ammo.remove(i);
-					i = 0;
-				}
+		for(int i = 0; i<ammo.size(); i++){
+			if(ammo.get(i).getY()<=5){
+				ammo.remove(i);
+				i--;
 			}
 		}
-	}
-	public Ammo getAmmo(int pos) {
-		return ammo.get(pos);
 	}
 
 	public List<Ammo> getList()
 	{
 		return ammo;
 	}
-	public int getSize() {
-		return ammo.size();
-	}
-	public void end()
-	{
-		if (ammo.size() > 0) {
-			for (int i = 0; i < ammo.size(); i++) {
-				ammo.get(i).setSpeed(0);
-			}
-		}
-	}
+
 	public String toString()
 	{
 		return "";
