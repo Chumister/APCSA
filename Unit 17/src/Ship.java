@@ -35,7 +35,7 @@ public class Ship extends MovingThing
 		speed=s;
 		try
 		{
-			URL url = getClass().getResource("/images/ship.jpg");
+			URL url = getClass().getResource("ship.jpg");
 			image = ImageIO.read(url);
 		}
 		catch(Exception e)
