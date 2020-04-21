@@ -1,6 +1,10 @@
-//(c) A+ Computer Science
-//www.apluscompsci.com
+package StarFighter;
+
+//� A+ Computer Science  -  www.apluscompsci.com
 //Name -
+//Date -
+//Class -
+//Lab  - 
 
 import java.io.*;
 import java.util.*;
